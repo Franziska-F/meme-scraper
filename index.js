@@ -16,7 +16,7 @@ axios
   .then(function (response) {
     const html = response.data;
     const $ = cheerio.load(html);
-    const links = getLinks($);
+    const links = getLinks($).slice(0, 10);
     console.log(links);
   })
   .catch(console.error);
