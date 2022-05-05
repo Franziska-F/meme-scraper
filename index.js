@@ -21,7 +21,7 @@ const getLinks = ($) => [
 
 let x = 0;
 let y = 1;
-let z = '0';
+const z = '0';
 
 axios
   .get(url)
@@ -39,16 +39,14 @@ axios
         }
 
         const loadImages = await fetch(links[x++]);
+        const arrayBuffer = await loadImages.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
 
-        const waitForImages = await loadImages.buffer();
-        fs.writeFile(
-          `./memes/${i < 9 ? z + y++ : 10}.jpg`,
-          waitForImages,
-          () => {
-            console.log(i);
-            console.log('Done!');
-          },
-        );
+        // const waitForImages = await loadImages.buffer();
+        fs.writeFile(`./memes/${i < 9 ? z + y++ : 10}.jpg`, buffer, () => {
+          console.log(i);
+          console.log('Done!');
+        });
       }
     }
     saveFile().catch(() => {});
