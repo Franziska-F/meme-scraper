@@ -13,13 +13,15 @@ const getLinks = ($) => [
       .toArray(),
   ),
 ];
-function index() {
-  for (let i = 0; i < 11; i++) {
-    console.log(i);
-  }
-}
+// let x = function () {
+//  for (let i = 0; i < 11; i++) {
+// console.log(i);
+// }
+// };
 
 let x = 0;
+let y = 1;
+let z = '0';
 
 axios
   .get(url)
@@ -27,10 +29,9 @@ axios
     const html = response.data;
     const $ = cheerio.load(html);
     const links = getLinks($).slice(0, 10);
-    console.log(links);
 
     async function saveFile() {
-      for (let i = 0; i < 2; i++) {
+      for (let i = 0; i < 11; i++) {
         const folder = './memes';
 
         if (!fs.existsSync(folder)) {
@@ -40,14 +41,19 @@ axios
         const loadImages = await fetch(links[x++]);
 
         const waitForImages = await loadImages.buffer();
-        fs.writeFile(`./memes/${x++}.jpg`, waitForImages, () =>
-          console.log('Done!'),
+        fs.writeFile(
+          `./memes/${i < 9 ? z + y++ : 10}.jpg`,
+          waitForImages,
+          () => {
+            console.log(i);
+            console.log('Done!');
+          },
         );
       }
     }
-    saveFile().catch(console.error);
+    saveFile().catch(() => {});
   })
-  .catch(console.error);
+  .catch(() => {});
 
 // const file = fs.createWriteStream(memes);
 
