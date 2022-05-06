@@ -9,7 +9,7 @@ const url = 'https://memegen-link-examples-upleveled.netlify.app/';
 const getLinks = ($) => [
   ...new Set(
     $('img')
-      .map((_, a) => $(a).attr('src'))
+      .map((kitty, a) => $(a).attr('src'))
       .toArray(),
   ),
 ];
