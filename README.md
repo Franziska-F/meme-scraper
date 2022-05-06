@@ -4,4 +4,4 @@
 
 `$node index.js `
 
-<img scr="screenshots/after_running.png" width="150" />
+![screenshot](screenshots/after-running.png)
