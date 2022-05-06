@@ -13,11 +13,6 @@ const getLinks = ($) => [
       .toArray(),
   ),
 ];
-// let x = function () {
-//  for (let i = 0; i < 11; i++) {
-// console.log(i);
-// }
-// };
 
 let x = 0;
 let y = 1;
