@@ -37,7 +37,6 @@ axios
         const arrayBuffer = await loadImages.arrayBuffer();
         const buffer = Buffer.from(arrayBuffer);
 
-        // const waitForImages = await loadImages.buffer();
         fs.writeFile(`./memes/${i < 9 ? z + y++ : 10}.jpg`, buffer, () => {
           console.log(i);
           console.log('Done!');
@@ -47,11 +46,3 @@ axios
     saveFile().catch(() => {});
   })
   .catch(() => {});
-
-// const file = fs.createWriteStream(memes);
-
-/* function saveImageToDisk(url, localPath) {var fullUrl = url;
-var file = fs.createWriteStream(localPath);
-var request = https.get(url, function(response) {
-response.pipe(file);
-});*/
