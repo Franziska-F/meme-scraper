@@ -4,5 +4,5 @@
 
 ```$node index.js
 
-![Image](screenshots/after_running.png)
+![Image](./screenshots/after_running.png)
 ```
